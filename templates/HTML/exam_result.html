@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>모의고사 결과</title>
+</head>
+<body>
+
+<h2>{{ category.name }} 모의고사 결과</h2>
+
+{% if message %}
+{% endif %}
+
+<p>총 문항 수: {{ question_count }} 문제</p>
+<p>내 점수: {{ score }} 점</p>
+
+{% if passed %}
+    <p style="color:green;">통과하였습니다!</p>
+{% else %}
+    <p style="color:red;">불합격입니다.</p>
+{% endif %}
+
+{% if already_rewarded %}
+    <p style="color:red;">
+        이미 이 시험에서 포인트를 받았습니다. (보상: 0원)
+    </p>
+{% else %}
+    {% if reward > 0 %}
+        <p style="color:blue;">이번 시험으로 {{ reward }}원이 적립되었습니다!</p>
+    {% endif %}
+{% endif %}
+
+
+<p>현재 포인트: {{ balance }}원</p>
+
+<a href="{% url 'main' %}">홈으로 돌아가기</a>
+
+</body>
+</html>

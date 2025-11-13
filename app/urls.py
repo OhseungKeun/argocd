@@ -22,7 +22,10 @@ urlpatterns = [
     path('', views.main, name="main"),
     path('signup/', views.signup, name="signup"),
     path('login/', views.login_view, name="login"),
-    path("quiz/", views.quiz, name="quiz"),
+    path('check-username/', views.check_username, name='check_username'),  
+    path('logout/', views.logout_view, name='logout'), 
+    path("quiz/", views.quiz_category_list, name="quiz"),
+    path('quiz/<int:categor_id>/', views.quiz_view, name='quiz_category'),
     path("point/", views.point, name="point"),
     path("user/", views.user_info, name="user_info"),
 ]

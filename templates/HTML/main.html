@@ -13,14 +13,20 @@
 <body>
 
 <div class="menu-bar">
-    <div><a href="/login">로그인</a></div>
-    <div><a href="#">메뉴</a></div>
-    <div><a href="/user">회원 정보/로그인</a></div>
+     <div><a href="#">메뉴</a></div>
+    <div><a href="/user">회원 정보</a></div>
 </div>
 
 <div class="box">
-    <p>회원의 누적 적립금</p>
-    <p>현재 누적 금액: {{ balance }}원</p>
+    {% if username %}
+        <h2>{{ username }}님 환영합니다!</h2>
+        <p>보유 포인트: {{ balance }}P</p>
+        <a href="{% url 'logout' %}">로그아웃</a>
+    {% else %}
+        <h2>로그인이 필요합니다.</h2>
+        <a href="{% url 'login' %}">로그인</a> |
+        <a href="{% url 'signup' %}">회원가입</a>
+    {% endif %}
 </div>
 
 <div class="box">

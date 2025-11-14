@@ -43,7 +43,7 @@ pipeline {
 
         stage('Update Manifest') {
             steps {
-                withCredentials([string(credentialsId: 'Github-Token', variable: 'GIT_TOKEN')]) {
+                withCredentials([string(credentialsId: 'Git-Token', variable: 'GIT_TOKEN')]) {
                     sh """
                     git config user.email "sbe03011@naver.com"
                     git config user.name "OhseungKeun"
